@@ -4,7 +4,9 @@ html{
 .container {
 	display:grid;
 	grid-template-columns: .25fr 1fr .25fr;
-	grid-template-rows: 100px .25fr 1fr .25fr 1fr .25fr;
+	grid-template-rows: .25fr .25fr 1fr .25fr 1fr .25fr;
+	height: 100vh;
+	grid-row-gap: 50px;
 }
 .head_title {
 	font-family: "courier new", monospace;
@@ -44,6 +46,7 @@ nav{
 	width: 100%;
 	grid-column: 1/ -1;
 }
+
 ul {
   list-style-type: none;
   width: 100%;
@@ -75,7 +78,7 @@ header{
   height: 400px;                /* Parallax effect */
 
   /*Your code here - cover the entire row*/
-  grid-row: 3;
+  grid-row: 3 /span 1;
   grid-column: 1/ -1;
 }
 
@@ -343,8 +346,9 @@ iframe{
 .contact_container{
 	display: grid;
 	grid-template-columns: .25fr 1fr .25fr;
-	grid-template-rows: .25fr .25fr 1fr .15fr;
+	grid-template-rows: .25fr .25fr .75fr .75fr .3fr .15fr;
 	text-align: center;
+	height: 100vh;
 }
 .contact{
 	grid-column: 2/span 1;
@@ -369,6 +373,63 @@ textarea{
 	width: 400px;
 	height: 400px;
 }
+
+input[type=submit]{
+	-webkit-transition-duration: 0.4s; 
+	transition-duration: 0.4s;
+}
+input[type=submit]:hover{
+	background-color: blue;
+	color: white;
+
+}
+.flip-card {
+	grid-column: 2/ span 1;
+	grid-row: 3/ span 1;
+	display: block;
+	margin: 0 auto;
+	align-items: center;
+  background-color: transparent;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; 
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: white;
+  color: white;
+  transform: rotateY(180deg);
+}
+.contactgif{
+	grid-column: 2/span 1;
+	grid-row: 4/span 1;
+	background-color: navy;
+}
+
 footer{
   background-color: pink;
   color: white;
@@ -527,8 +588,28 @@ footer{
 		display: block;
 		text-align: center;
 	}
+	.resume_container{
+		display:grid;
+		grid-template-columns: .25fr 1fr .25fr;
+		grid-template-rows: .2fr .05fr .5fr 1fr 1fr;
+
+	}
 	.resumelink{
 		justify-content: center;
+		color: indigo;
+		font-size: 20px;
+		padding-top: 10px;
+		padding-bottom:25px;
+
+	}
+	.linkedin img{
+		padding-top: 30px;
+	}
+	.proj_title{
+		text-decoration: underline;
+	}
+	.project1 p{
+		padding-bottom: 25px;
 	}
 	.about-text p {
 		font-size: 16px;
@@ -683,8 +764,27 @@ footer{
 		grid-row:4/ span 1;
 	}
 }
-@media(prefers-reduced-motion: reduce){
-	@keyframes bounceIn {
+
+@media screen and (prefers-reduced-motion: reduce){
+  html{
+      scroll-behavior: auto; /* Removes scroll animation */
+  }
+
+  .skip a{
+    background: white;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: none; /* Your code here - set to default setting */
+    transition: none; /* Your code here - set to default setting */
+    z-index: 1;
+  }
+
+  .skip a:focus{
+    top:0;
+  }
+  @keyframes bounceIn {
   0% {
     transform: none;
     opacity: 1;
@@ -698,5 +798,8 @@ footer{
     opacity: 1;
   }
 }
-	}
+.flip-card:hover .flip-card-inner {
+  transform: none;
+}
+}
 
