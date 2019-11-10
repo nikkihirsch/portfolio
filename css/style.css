@@ -430,6 +430,11 @@ input[type=submit]:hover{
 	background-color: navy;
 }
 
+.phonenumber{
+	grid-column: 2/span 1;
+	grid-row: 5/ span 1;
+}
+
 footer{
   background-color: pink;
   color: white;
@@ -445,16 +450,28 @@ footer{
 		width: 100vw;
 		height: 100vh;
 		display:grid;
+		grid-template-rows: 100px .25fr 1fr .25fr 1fr .25fr;
 		/*grid-template-columns: 1fr;*/
-		grid-template-rows: 100px 100px 900px .5fr .5fr;
 	}
+	.contact_container{
+	display: grid;
+	grid-template-columns: .25fr 1fr .25fr;
+	grid-template-rows: 100px .25fr .75fr .75fr .3fr .15fr;
+	text-align: center;
+	height: 100vh;
+	width: 100vw;
+}
+
+	
 
 	header{
 		height: 800px;
 		/*grid-column: 1 / -1; */ /*Can you explain what this does?*/
 		grid-row: 3/ 4; 
-		background-attachment: fixed;  
-		background-position: 50% 50%;
+		/*background-attachment: fixed;*/  
+		/*background-position: 50% 50%;*/
+		/*background-size: contain;*/
+		background-position: top;
 
 	}
 	nav{
@@ -466,20 +483,15 @@ footer{
 		/*grid-column: 1/ span 1;*/
 	}
 	.title{
-		grid-row: 4/ span 1;
-		/*grid-column: 1/ span 1;*/
+		
 		text-align: center;
-		background-attachment: fixed; /* Parallax effect */
-		background-image: url("../images/travel.jpeg");      /* Your code here - Link to header.jpg in the images folder */
-		background-position: center;  /* Parallax effect */
-		background-repeat: no-repeat; /* Parallax effect */
-		background-size: cover;       /* Parallax effect */
+		background-position: top; 
 		color: white;
-		height: 400px;                /* Parallax effect */
+		height: 800px;                /* Parallax effect */
 
   /*Your code here - cover the entire row*/
-  grid-row: 4;
-  grid-column: 1/ -1;
+	  grid-row: 4;
+	  grid-column: 1/ -1;
 
 	}
 
@@ -491,6 +503,7 @@ footer{
 
 	footer{
 		grid-row: -1/ span 1;
+		grid-column: 1/ -1;
 		/*grid-column: 1/ span 1;*/
 	}
 	.gallery_container{
@@ -582,7 +595,7 @@ footer{
 	.gallery9 img{
 		display: block;
 		margin-left: auto;
-		margin-right: auto;*/
+		margin-right: auto;
 	}
 	.links{
 		display: block;
@@ -591,8 +604,17 @@ footer{
 	.resume_container{
 		display:grid;
 		grid-template-columns: .25fr 1fr .25fr;
-		grid-template-rows: .2fr .05fr .5fr 1fr 1fr;
+		grid-template-rows: 100px .05fr .5fr 1fr 1fr;
+		width: 100vw;
 
+
+	}
+
+	.grid_container{
+		width:100vw;
+	}
+	.about_container{
+		width:100vw;
 	}
 	.resumelink{
 		justify-content: center;
